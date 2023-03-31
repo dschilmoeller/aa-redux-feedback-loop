@@ -1,6 +1,6 @@
 
 function Header () {
-    console.log(`In Header`);
+    
     return (
         <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>

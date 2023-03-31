@@ -1,6 +1,20 @@
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 function Review() {
-    console.log(`In Review`);
+        // setup
+        const history = useHistory();
+        // const dispatch = useDispatch();
+    
+        // in-component State Handlers
+        const [feeling, setFeeling] = useState(0)
+        const handleStateChange = (event) => {
+            setFeeling(event.target.value)
+        }
+    
+        // Click Handler -> dispatch, history.push
+    
     return (
         <div>
             <h1>Review Your Feedback</h1>

@@ -10,6 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
+// CREATE EXPRESS ROUTE TO POOL TO THROW STUFF INTO DB
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
