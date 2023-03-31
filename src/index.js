@@ -9,6 +9,8 @@ import { Provider } from 'react-redux'
 const feeling = (state = 0, action) => {
     if (action.type === 'UPDATE_FEELING') {
         return action.payload
+    } else if (action.type === 'RESET_ALL_REDUCERS') {
+        return 0;
     } else {
         return state;
     }
@@ -17,32 +19,34 @@ const feeling = (state = 0, action) => {
 const understanding = (state = 0, action) => {
     if (action.type === 'UPDATE_UNDERSTANDING') {
         return action.payload;
+    } else if (action.type === 'RESET_ALL_REDUCERS') {
+        return 0;
+    } else {
+        return state;
     }
-    return state
 }
 
 const support = (state = 0, action) => {
     if (action.type === 'UPDATE_SUPPORT') {
         return action.payload;
+    } else if (action.type === 'RESET_ALL_REDUCERS') {
+        return 0;
+    } else {
+        return state;
     }
-    return state
 }
 
 const comments = (state = '', action) => {
     if (action.type === 'UPDATE_COMMENTS') {
         return action.payload;
-    }
-    return state
-}
-
-const reviewResult = (state = {}, action) => {
-    if (action.type === 'UPDATE_RESULT') {
+    } else if (action.type === 'RESET_ALL_REDUCERS') {
+        return '';
+    } else {
         return state;
     }
-    return state
 }
 
-// POST ROUTE TO DB GOES HERE
+
 
 const storeInstance = createStore(
     combineReducers({
@@ -51,7 +55,6 @@ const storeInstance = createStore(
         understanding,
         support,
         comments,
-        reviewResult
     }),
     applyMiddleware(logger)
 );

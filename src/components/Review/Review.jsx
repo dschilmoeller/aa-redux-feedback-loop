@@ -1,28 +1,26 @@
-import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Review() {
-        // setup
-        const history = useHistory();
-        // const dispatch = useDispatch();
-    
-        // in-component State Handlers
-        const [feeling, setFeeling] = useState(0)
-        const handleStateChange = (event) => {
-            setFeeling(event.target.value)
-        }
-    
-        // Click Handler -> dispatch, history.push
-    
+    const history = useHistory();
+
+    const reviewFeeling = useSelector(store => store.feeling);
+    const reviewUnderstanding = useSelector(store => store.understanding);
+    const reviewSupport = useSelector(store => store.support);
+    const reviewComments = useSelector(store => store.comments);
+
+    // Click Handler -> dispatch, history.push
+    const handleSubmit = (event) => {
+        history.push('/thankyou')
+    }
     return (
         <div>
             <h1>Review Your Feedback</h1>
-            <h2>Feelings: A number </h2>
-            <h2>Understanding: A number</h2>
-            <h2>Support: A number</h2>
-            <h2>Comments: Some words</h2>
-            <button>Submit</button>
+            <h2>Feelings: {reviewFeeling} </h2>
+            <h2>Understanding: {reviewUnderstanding}</h2>
+            <h2>Support: {reviewSupport}</h2>
+            <h2>Comments: {reviewComments}</h2>
+            <button onClick={handleSubmit}>Submit</button>
         </div>
     )
 }

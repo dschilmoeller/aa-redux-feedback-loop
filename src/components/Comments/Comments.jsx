@@ -21,7 +21,7 @@ function Comments() {
                 type: 'UPDATE_COMMENTS',
                 payload: comments
             })
-            history.push('/thankyou')
+            history.push('/review')
         } else {
             alert('Please enter a comment!')
         }
