@@ -19,7 +19,9 @@ function ThankYou() {
     }
 
     const handleSubmit = () => {
+        console.log(`TheFinalVariable:`, theFinalVariable);
         axios.post('/submitReview', theFinalVariable)
+        
         .then(response => {
             dispatch({
                 type: 'RESET_ALL_REDUCERS',

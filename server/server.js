@@ -10,7 +10,8 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
-// CREATE EXPRESS ROUTE TO POOL TO THROW STUFF INTO DB
+const reviewRouter = require('./routes/review.router.js')
+app.use('/submitReview', reviewRouter)
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
